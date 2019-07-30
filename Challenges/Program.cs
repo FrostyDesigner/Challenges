@@ -12,52 +12,27 @@ namespace Challenges
         static void Main(string[] args)
         {
             // body
+            string line = "Display the pattern like pyramid using the alphabet.";
+            string result = string.Empty;
+            List<string> wordsList = new List<string>();
+            string[] words = line.Split(new[] {" "}, StringSplitOptions.None);
 
-
-            // return results
-            Console.WriteLine("\nSum of the first 500 prime numbers: ");
-            long sum = 0;
-            int ctr = 0;
-            int n = 2;
-            while (ctr < 10)
+            for (int i = words.Length - 1; i <= 0; i--)
             {
-                if (isPrime(n))
-                {
-                    Console.WriteLine(n);
-                    sum += n;
-                    ctr++;
-                }
-                n++;
+                result = result + words[i] + "";
+            }
+            wordsList.Add(result);
+            foreach (var s in wordsList)
+            {
+                Console.WriteLine("\nReverse String " + s);
             }
 
-            Console.WriteLine(sum.ToString());
+            // return results
+
+
 
             // pause to show results
             Console.ReadLine();
-        }
-
-        public static bool isPrime(int n)
-        {
-            int x = (int)Math.Floor(Math.Sqrt(n));
-
-            if (n == 1)
-            {
-                return false;
-            }
-            if (n == 2)
-            {
-                return true;
-            }
-
-            for (int i = 2; i <= x; ++i)
-            {
-                if (n % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }
